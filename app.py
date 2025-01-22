@@ -1,9 +1,19 @@
 from tkinter import *
 
-
+# ------------- ROOT CONFIG -------------
 root = Tk()
 root.geometry("800x600")
-
+root.title("my app")
+root.config(bg="sky blue")
+root.grid_columnconfigure(0, weight=1)
+root.grid_columnconfigure(1, weight=1)
+root.grid_columnconfigure(2, weight=1)
+root.grid_rowconfigure(0, weight=1)
+root.grid_rowconfigure(1, weight=1)
+root.grid_rowconfigure(2, weight=1)
+root.grid_rowconfigure(3, weight=1)
+root.grid_rowconfigure(4, weight=1)
+root.grid_rowconfigure(5, weight=1)
 
 
 
@@ -13,33 +23,35 @@ def login_fun() :
 def signup_fun() :
   title['bg'] = "gold"
 
-title =Label(root, text="hello!")
-title.grid(row=0, column=1)
+
+
+#---------- LOGIN PAGE ----------
+title =Label(root, text="hello!", font=("Roboto", 30), fg="black", bg="sky blue")
+title.grid(row=0, column=1,sticky="nsew")
 #Email
-email_label = Label(root, text="Email:")
+email_label = Label(root, text="Email:", font=("Roboto", 20), bg="sky blue")
 email_label.grid(row=1, column=0)
 #Email Entry
-email_frame = Frame(root)
+email_frame = Frame(root, padx=5, pady=8, bg="lightblue")
 email_frame.grid(row=1, column=1)
-email_entry = Entry(email_frame, width=40)
+email_entry = Entry(email_frame, width=40, font=80, bg="sky blue")
 email_entry.pack()
 #Password
-pass_label = Label(root, text="Paaword:")
+pass_label = Label(root, text="Paaword:", font=("Roboto", 20), bg="sky blue")
 pass_label.grid(row=2, column=0)
 #Password Entry
-pass_frame = Frame(root)
+pass_frame = Frame(root, padx=5, pady=8, bg="lightblue")
 pass_frame.grid(row=2, column=1)
-pass_entry = Entry(pass_frame, show="*", width=40)
+pass_entry = Entry(pass_frame, show="*", width=40, font=80, bg="sky blue")
 pass_entry.pack()
-
 #Login Button
-login_btn = Button(root, text="Login", command=login_fun)
-login_btn.grid(row=3, column=0)
-login_btn.grid(row=3, column=0)
-
-signup = Label(root, text= "If don't have account")
+login_btn = Button(root, text="Login",font=("Roboto", 20), bg = "sky blue", command=login_fun)
+login_btn.grid(row=3, column=0, columnspan=3, sticky="we" , padx= 50)
+login_btn.grid(row=3, column=0, columnspan=3)
+#signup button
+signup = Label(root, text= "If don't have account", font=("Roboto", 10), bg="sky blue")
 signup.grid(row=4, column=2)
-signup_btn = Button(root, text="Sign Up", command= signup_fun)
+signup_btn = Button(root, text="Sign Up",font=("Roboto", 10), bg = "sky blue", command= signup_fun)
 signup_btn.grid(row=5, column=2)
 
 
