@@ -20,14 +20,20 @@ root.grid_rowconfigure(5, weight=1)
 profile = Tk()
 profile.withdraw()
 profile.geometry("800x600")
+profile.title("User Data")
+profile.config(bg="sky blue")
 
 
 def open_profile(data):
+    root.withdraw()
+
     profile.deiconify()
-    logout_btn = Button(profile, text="Logout", command=logout_fun)
+    email_entry.delete(0, END)
+
+    logout_btn = Button(profile, text="Logout", font=("Arial", 16), command=logout_fun)
     logout_btn.place(x= 700, y= 10)
 
-    label = Label(profile, text=f"Hello: {data}")
+    label = Label(profile, text=f"Hello: {data}", font=("Arial", 16))
     label.place(x= 320, y= 100)
 
     profile.mainloop()
@@ -40,7 +46,8 @@ def signup_fun() :
   title['bg'] = "gold"
 
 def logout_fun() :
-  title['bg'] = "blue2"
+  profile.withdraw()
+  root.deiconify()
 
 
 
