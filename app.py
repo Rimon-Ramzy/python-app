@@ -16,12 +16,32 @@ root.grid_rowconfigure(4, weight=1)
 root.grid_rowconfigure(5, weight=1)
 
 
+# ------------- PROFILE CONFIG -------------
+profile = Tk()
+profile.withdraw()
+profile.geometry("800x600")
 
-def login_fun() :
-  title['bg'] = "red"
+
+def open_profile(data):
+    profile.deiconify()
+    logout_btn = Button(profile, text="Logout", command=logout_fun)
+    logout_btn.place(x= 700, y= 10)
+
+    label = Label(profile, text=f"Hello: {data}")
+    label.place(x= 320, y= 100)
+
+    profile.mainloop()
+
+def login_fun(name):
+    user_data = name
+    open_profile(user_data)
 
 def signup_fun() :
   title['bg'] = "gold"
+
+def logout_fun() :
+  title['bg'] = "blue2"
+
 
 
 
@@ -45,7 +65,7 @@ pass_frame.grid(row=2, column=1)
 pass_entry = Entry(pass_frame, show="*", width=40, font=80, bg="sky blue")
 pass_entry.pack()
 #Login Button
-login_btn = Button(root, text="Login",font=("Roboto", 20), bg = "sky blue", command=login_fun)
+login_btn = Button(root, text="Login",font=("Roboto", 20), bg = "sky blue", command=lambda: login_fun(email_entry.get()))
 login_btn.grid(row=3, column=0, columnspan=3, sticky="we" , padx= 50)
 login_btn.grid(row=3, column=0, columnspan=3)
 #signup button
